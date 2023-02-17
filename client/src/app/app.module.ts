@@ -6,11 +6,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginPageComponent } from './pages/login-page/login-page/login-page.component';
-import { RegisterPageComponent } from './pages/register-page/register-page/register-page.component';
-import { HomePageComponent } from './pages/home-page/home-page/home-page.component';
-import { NavBarComponent } from './components/nav-bar/nav-bar/nav-bar.component';
-import { NewContactsComponent } from './components/new-contacts/new-contacts/new-contacts.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { NewContactsComponent } from './components/new-contacts/new-contacts.component';
 import { NewContactCardComponent } from './components/new-contact-card/new-contact-card.component';
 
 import { MatInputModule } from '@angular/material/input';
