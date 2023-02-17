@@ -1,0 +1,40 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  justify-content: center;
+  width: 100%;
+  height: 30px;
+  padding: 1rem 0;
+}
+
+h3 {
+  margin: 0;
+  margin-left: 1rem;
+}
+
+.subtitle {
+  color: grey;
+  margin: 0;
+  margin-left: 1rem;
+}
+
+.message-container {
+  flex-grow: 1;
+  border: lightgrey solid 1px;
+}
+
+.text-area {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+mat-form-field {
+  flex-grow: 1;
+}

@@ -1,0 +1,13 @@
+.card {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.subtitle {
+  margin-bottom: 0;
+}

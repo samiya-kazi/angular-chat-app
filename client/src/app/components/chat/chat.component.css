@@ -1,0 +1,11 @@
+.container {
+  border: lightgrey solid 1px;
+  width: 60vw;
+  height: 80%;
+  border-radius: 20px;
+  display: flex;
+}
+
+app-chat-box {
+  flex-grow: 1;
+}

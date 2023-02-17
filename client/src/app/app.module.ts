@@ -17,7 +17,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatCardModule } from '@angular/material/card'
+import { MatCardModule } from '@angular/material/card';
+import { ChatComponent } from './components/chat/chat.component';
+import { ChatListComponent } from './components/chat-list/chat-list.component';
+import { ChatBoxComponent } from './components/chat-box/chat-box.component';
+import { ChatCardComponent } from './components/chat-card/chat-card.component'
 
 @NgModule({
   declarations: [
@@ -27,7 +31,11 @@ import { MatCardModule } from '@angular/material/card'
     HomePageComponent,
     NavBarComponent,
     NewContactsComponent,
-    NewContactCardComponent
+    NewContactCardComponent,
+    ChatComponent,
+    ChatListComponent,
+    ChatBoxComponent,
+    ChatCardComponent
   ],
   imports: [
     BrowserModule,
