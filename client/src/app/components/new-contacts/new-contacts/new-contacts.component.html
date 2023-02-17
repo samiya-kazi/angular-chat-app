@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="header">
+    <h3>New Contacts</h3>
+  </div>
+  <div class="list">
+    <app-new-contact-card *ngFor="let user of users" [user]="user"></app-new-contact-card>
+  </div>
+</div>

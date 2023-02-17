@@ -10,11 +10,14 @@ import { LoginPageComponent } from './pages/login-page/login-page/login-page.com
 import { RegisterPageComponent } from './pages/register-page/register-page/register-page.component';
 import { HomePageComponent } from './pages/home-page/home-page/home-page.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar/nav-bar.component';
+import { NewContactsComponent } from './components/new-contacts/new-contacts/new-contacts.component';
+import { NewContactCardComponent } from './components/new-contact-card/new-contact-card.component';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card'
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     LoginPageComponent,
     RegisterPageComponent,
     HomePageComponent,
-    NavBarComponent
+    NavBarComponent,
+    NewContactsComponent,
+    NewContactCardComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

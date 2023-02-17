@@ -31,7 +31,8 @@ const { User } = require("../models/user.model");
 
  async function getUserChats (req, res) {
   try {
-    const { user } = req.body;
+    const { userId } = req.params;
+    const user = await User.findById(userId);
     const chats = await Chat.find({users: {$in: [user]}});
     res.status(200).send(chats);
   } catch (error) {
