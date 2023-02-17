@@ -1,0 +1,25 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.error {
+  color: maroon;
+  margin-top: 10px;
+}
+
+.route {
+  margin-top: 20px;
+}

@@ -1,2 +1,42 @@
 <app-nav-bar [logout]="false"></app-nav-bar>
-<p>register-page works!</p>
+<div class="container">
+  <form [formGroup]="registerForm" (submit)="handleSubmit()">
+    <h1>Register</h1>
+
+    <mat-form-field class="full-width">
+      <mat-label>First Name</mat-label>
+      <input matInput type="email" formControlName="firstName"/>
+      <mat-error *ngIf="firstName?.errors?.['required']">First name is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Last Name</mat-label>
+      <input matInput type="email" formControlName="lastName"/>
+      <mat-error *ngIf="lastName?.errors?.['required']">Last name is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email"/>
+      <mat-error *ngIf="email?.errors?.['email']">Email is invalid</mat-error>
+      <mat-error *ngIf="email?.errors?.['required']">Email is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password"/>
+      <mat-error *ngIf="password?.errors?.['required']">Password is required</mat-error>
+      <mat-error *ngIf="password?.errors?.['minlength']">Password needs to be at least 6 characters long</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Confirm Password</mat-label>
+      <input matInput type="password" formControlName="confirmPassword"/>
+      <mat-error *ngIf="confirmPassword?.value !== password?.value">Passwords do not match</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="accent">Login</button>
+    <div *ngIf="errorMessage.length" class="error">{{errorMessage}}</div>
+    <div class="route">Already have an account? <a routerLink="/login">Login.</a></div>
+  </form>
+</div>

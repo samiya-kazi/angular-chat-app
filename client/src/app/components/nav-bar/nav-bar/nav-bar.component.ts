@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,9 +10,13 @@ export class NavBarComponent implements OnInit {
 
   @Input() logout! : boolean;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  handleLogout () {
+    localStorage.clear();
+    this.router.navigate(['login']);
+  }
 }

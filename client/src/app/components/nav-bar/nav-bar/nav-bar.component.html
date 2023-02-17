@@ -3,7 +3,7 @@
     <mat-toolbar-row>
       <span><a routerLink="/" class="logo">Angular Chat App</a></span>
       <span class="spacer"></span>
-      <button mat-raised-button *ngIf="logout" type="button">Logout</button>
+      <button mat-raised-button *ngIf="logout" type="button" (click)="handleLogout()">Logout</button>
     </mat-toolbar-row>
   </mat-toolbar>
 </div>

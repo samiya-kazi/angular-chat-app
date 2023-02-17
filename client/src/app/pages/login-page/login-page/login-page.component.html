@@ -1,2 +1,23 @@
 <app-nav-bar [logout]="false"></app-nav-bar>
-<p>login-page works!</p>
+<div class="container">
+  <form [formGroup]="loginForm" (submit)="handleSubmit()">
+    <h1>Login</h1>
+
+    <mat-form-field class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email"/>
+      <mat-error *ngIf="email?.errors?.['email']">Email is invalid</mat-error>
+      <mat-error *ngIf="email?.errors?.['required']">Email is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password"/>
+      <mat-error *ngIf="password?.errors?.['required']">Password is required</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="accent">Login</button>
+    <div *ngIf="errorMessage.length" class="error">{{errorMessage}}</div>
+    <div class="route">Don't have an account? <a routerLink="/register">Register.</a></div>
+  </form>
+</div>
