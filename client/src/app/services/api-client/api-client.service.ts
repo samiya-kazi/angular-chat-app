@@ -27,4 +27,8 @@ export class ApiClientService {
     return this.http.post<Chat>(this.rootUrl + '/chat', {userId1, userId2});
   }
 
+  addMessage (chatId: string, content: string, sender: User) : Observable<Chat> {
+    return this.http.post<Chat>(this.rootUrl + '/chat/' + chatId, {content, sender});
+  }
+
 }

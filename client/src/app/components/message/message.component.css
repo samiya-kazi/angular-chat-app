@@ -1,0 +1,26 @@
+.message-container {
+  width: 100%;
+}
+
+.message {
+  display: flex;
+  justify-content: flex-start;
+}
+
+p {
+  border: lightgray solid 1px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+.user-message {
+  justify-content: flex-end;
+}
+
+.user-message > p {
+  background-color : #3f51b5;
+  border: none;
+  color: white;
+  margin-right: 10px;
+}

@@ -4,12 +4,12 @@
     <p class="subtitle">{{otherUser.email}}</p>
   </div>
   <div class="message-container">
-
+    <app-message *ngFor="let message of selectedChat?.messages" [message]="message"></app-message>
   </div>
   <form class="text-area">
     <mat-form-field appearance="outline">
-      <input matInput />
+      <input matInput [formControl]="messageContent" />
     </mat-form-field>
-    <button mat-flat-button><mat-icon>send</mat-icon></button>
+    <button mat-flat-button (click)="handleSend()"><mat-icon>send</mat-icon></button>
   </form>
 </div>

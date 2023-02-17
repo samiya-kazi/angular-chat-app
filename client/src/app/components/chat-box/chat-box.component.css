@@ -26,6 +26,7 @@ h3 {
 .message-container {
   flex-grow: 1;
   border: lightgrey solid 1px;
+  overflow-y: scroll ;
 }
 
 .text-area {

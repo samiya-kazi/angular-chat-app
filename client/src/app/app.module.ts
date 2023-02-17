@@ -21,7 +21,8 @@ import { MatCardModule } from '@angular/material/card';
 import { ChatComponent } from './components/chat/chat.component';
 import { ChatListComponent } from './components/chat-list/chat-list.component';
 import { ChatBoxComponent } from './components/chat-box/chat-box.component';
-import { ChatCardComponent } from './components/chat-card/chat-card.component'
+import { ChatCardComponent } from './components/chat-card/chat-card.component';
+import { MessageComponent } from './components/message/message.component'
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ChatCardComponent } from './components/chat-card/chat-card.component'
     ChatComponent,
     ChatListComponent,
     ChatBoxComponent,
-    ChatCardComponent
+    ChatCardComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
