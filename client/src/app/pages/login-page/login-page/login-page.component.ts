@@ -24,6 +24,8 @@ export class LoginPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    const user = localStorage.getItem('user');
+    if (user) this.router.navigate(['home']);
   }
 
   handleSubmit () {
@@ -42,7 +44,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   get email () {return this.loginForm.get('email')};
-  
+
   get password () {return this.loginForm.get('password')};
 
 }

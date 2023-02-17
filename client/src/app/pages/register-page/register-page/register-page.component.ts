@@ -27,6 +27,8 @@ export class RegisterPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    const user = localStorage.getItem('user');
+    if (user) this.router.navigate(['home']);
   }
 
   handleSubmit () {
