@@ -1,0 +1,34 @@
+.container {
+  width: 100%;
+}
+
+.nav-button {
+  padding: 14px;
+  margin: 10px;
+  background-color: transparent;
+  color: white;
+  font-size: medium;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  background-color: white;
+  color: black;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
+
+.logo-svg {
+  height: 50px;
+  margin-right: 10px;
+}
