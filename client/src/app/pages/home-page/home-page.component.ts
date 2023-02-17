@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Chat } from 'src/app/interfaces/chat.interface';
 import { User } from 'src/app/interfaces/user.interface';
 import { ApiClientService } from 'src/app/services/api-client/api-client.service';
-import { NewChatService } from 'src/app/services/new-chat/new-chat.service';
+import { ChatService } from 'src/app/services/chat/chat.service';
 
 @Component({
   selector: 'app-home-page',
@@ -15,7 +15,7 @@ export class HomePageComponent implements OnInit {
   constructor(
     private router: Router,
     private api: ApiClientService,
-    private newChat: NewChatService
+    private chat: ChatService
   ) { }
 
   user! : User;
@@ -30,7 +30,7 @@ export class HomePageComponent implements OnInit {
 
     this.getUsers()
 
-    this.newChat.getNewChat().subscribe(chat => {
+    this.chat.getNewChat().subscribe(chat => {
       this.addNewChat(chat);
     })
   }

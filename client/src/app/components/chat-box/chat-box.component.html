@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="header">
-    <h3>Samiya Kazi</h3>
-    <p class="subtitle">samiya@email.com</p>
+  <div *ngIf="otherUser" class="header">
+    <h3>{{otherUser.firstName + ' ' + otherUser.lastName}}</h3>
+    <p class="subtitle">{{otherUser.email}}</p>
   </div>
   <div class="message-container">
 

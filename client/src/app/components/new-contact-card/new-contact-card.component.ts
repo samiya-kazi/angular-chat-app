@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { User } from 'src/app/interfaces/user.interface';
 import { ApiClientService } from 'src/app/services/api-client/api-client.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { NewChatService } from 'src/app/services/new-chat/new-chat.service';
+import { ChatService } from 'src/app/services/chat/chat.service';
 
 @Component({
   selector: 'app-new-contact-card',
@@ -16,7 +16,7 @@ export class NewContactCardComponent implements OnInit {
   constructor(
     private auth: AuthService,
     private api: ApiClientService,
-    private newChat: NewChatService
+    private chat: ChatService
   ) { }
 
   ngOnInit(): void {
@@ -26,7 +26,7 @@ export class NewContactCardComponent implements OnInit {
     const self = this.auth.getUser();
     this.api.addChat(self._id, this.user._id).subscribe({
       next: newChat => {
-        this.newChat.setNewChat(newChat);
+        this.chat.setNewChat(newChat);
       }
     })
   }

@@ -1,4 +1,4 @@
-<mat-card class="card">
+<mat-card class="card" [class.selected]="selected" (click)="handleSelect()">
   <mat-card-header class="header">
     <mat-icon mat-card-avatar color="primary">face</mat-icon>
     <div class="title">
