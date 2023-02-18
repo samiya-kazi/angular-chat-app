@@ -51,9 +51,9 @@ export class HomePageComponent implements OnInit {
         
         this.otherUsers = this.otherUsers.filter(user => {
           let flag = true;
-          chats.forEach(chat => {
+          this.userChats.forEach(chat => {
             const list = chat.users.filter(u => u._id === user._id);
-            flag = list.length ? false : true;
+            if (list.length) flag = false;
           })
 
           return flag;
