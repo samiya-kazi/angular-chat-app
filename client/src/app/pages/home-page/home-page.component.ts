@@ -30,24 +30,9 @@ export class HomePageComponent implements OnInit {
       this.user = JSON.parse(user);
     } else this.router.navigate(['login']);
 
-    this.getUsers()
-
-    this.chat.getNewChat().subscribe(chat => {
-      this.addNewChat(chat);
-    })
-
-
-    this.chatSocket.getMessages().subscribe({
-      next: updatedChat => {
-        this.chat.setUpdatedChat(updatedChat);
-        this.userChats.forEach(chat => {
-          if (chat._id === updatedChat._id) {
-            chat = updatedChat;
-            this.chat.setSelectedChat(chat);
-          }
-        })
-      }
-    })
+    this.getUsers();
+    this.handleNewChat();
+    this.handleNewMessage();
   }
 
   getUsers () {
@@ -85,6 +70,28 @@ export class HomePageComponent implements OnInit {
       const list = chat.users.filter(u => u._id === user._id);
       flag = list.length ? false : true;
       return flag;
+    })
+  }
+
+
+  handleNewChat () {
+    this.chat.getNewChat().subscribe(chat => {
+      this.addNewChat(chat);
+    })
+  }
+
+
+  handleNewMessage () {
+    this.chatSocket.getMessages().subscribe({
+      next: updatedChat => {
+        this.chat.setUpdatedChat(updatedChat);
+        this.userChats.forEach(chat => {
+          if (chat._id === updatedChat._id) {
+            chat = updatedChat;
+            this.chat.setSelectedChat(chat);
+          }
+        })
+      }
     })
   }
 

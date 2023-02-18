@@ -29,14 +29,20 @@ export class ChatBoxComponent implements OnInit {
 
   ngOnInit(): void {
     this.messageContent.disable();
+    this.handleSelectedChat();
+  }
+
+
+  handleSelectedChat () {
     this.chatService.getSelectedChat().subscribe(chat => {
       this.selectedChat = chat;
       const user = this.auth.getUser();
       this.otherUser = this.selectedChat.users.filter(u => u._id !== user._id)[0];
       this.scrollToBottom();
       this.messageContent.enable();
-    })
+    });
   }
+
 
   handleSend () {
     if (this.selectedChat && this.messageContent.value?.length) {
@@ -49,6 +55,7 @@ export class ChatBoxComponent implements OnInit {
     }
   }
 
+  
   scrollToBottom = () => {
     try {
       this.content!.nativeElement.scrollTop = this.content!.nativeElement.scrollHeight;

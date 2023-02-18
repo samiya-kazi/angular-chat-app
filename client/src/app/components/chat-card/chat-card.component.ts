@@ -31,19 +31,27 @@ export class ChatCardComponent implements OnInit {
     this.lastMessage = this.chat.messages[this.chat.messages.length - 1];
 
     this.chatSocket.joinChat(this.chat._id);
+    this.handleSelectedChat();
+    this.handleUpdatedChat();
+  }
 
+  
+  handleSelect () {
+    this.chatService.setSelectedChat(this.chat);
+  }
+
+
+  handleSelectedChat () {
     this.chatService.getSelectedChat().subscribe(chat => {
       if (chat._id === this.chat._id) this.selected = true;
       else this.selected = false;
     })
+  }
 
+  handleUpdatedChat () {
     this.chatService.getUpdatedChat().subscribe(updatedChat => {
       if (this.chat._id === updatedChat._id) this.lastMessage = updatedChat.messages[updatedChat.messages.length - 1];
     })
-  }
-
-  handleSelect () {
-    this.chatService.setSelectedChat(this.chat);
   }
 
 }
