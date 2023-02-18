@@ -87,8 +87,7 @@ export class HomePageComponent implements OnInit {
         this.chat.setUpdatedChat(updatedChat);
         this.userChats.forEach(chat => {
           if (chat._id === updatedChat._id) {
-            chat = updatedChat;
-            this.chat.setSelectedChat(chat);
+            chat.messages = updatedChat.messages;
           }
         })
       }

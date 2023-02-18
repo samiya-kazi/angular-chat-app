@@ -18,6 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
+import { MatBadgeModule } from '@angular/material/badge';
 import { ChatComponent } from './components/chat/chat.component';
 import { ChatListComponent } from './components/chat-list/chat-list.component';
 import { ChatBoxComponent } from './components/chat-box/chat-box.component';
@@ -55,6 +56,7 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     MatIconModule,
     MatToolbarModule,
     MatCardModule,
+    MatBadgeModule,
     SocketIoModule.forRoot(config)
   ],
   providers: [],

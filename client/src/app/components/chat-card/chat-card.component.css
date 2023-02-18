@@ -15,3 +15,8 @@
 .selected {
   background-color: rgb(206, 233, 242);
 }
+
+.badge {
+  display: flex;
+  align-items: center;
+}

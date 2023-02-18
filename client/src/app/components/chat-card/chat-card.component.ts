@@ -18,6 +18,7 @@ export class ChatCardComponent implements OnInit {
   user! : User;
   selected : boolean = false;
   lastMessage! : Message;
+  newMessageCount = 0;
 
   constructor(
     private auth: AuthService,
@@ -35,9 +36,10 @@ export class ChatCardComponent implements OnInit {
     this.handleUpdatedChat();
   }
 
-  
+
   handleSelect () {
     this.chatService.setSelectedChat(this.chat);
+    this.newMessageCount = 0;
   }
 
 
@@ -50,7 +52,10 @@ export class ChatCardComponent implements OnInit {
 
   handleUpdatedChat () {
     this.chatService.getUpdatedChat().subscribe(updatedChat => {
-      if (this.chat._id === updatedChat._id) this.lastMessage = updatedChat.messages[updatedChat.messages.length - 1];
+      if (this.chat._id === updatedChat._id) {
+        this.lastMessage = updatedChat.messages[updatedChat.messages.length - 1];
+        if (!this.selected) this.newMessageCount++;
+      };
     })
   }
 

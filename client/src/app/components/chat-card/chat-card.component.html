@@ -8,4 +8,7 @@
       </mat-card-subtitle>
     </div>
   </mat-card-header>
+  <div *ngIf="newMessageCount" class="badge">
+    <div [matBadge]="newMessageCount"></div>
+  </div>
 </mat-card>
