@@ -55,8 +55,20 @@ const { User } = require("../models/user.model");
  }
 
 
+ async function newMessage (data) {
+  try {
+    const { chatId, content, sender } = data;
+    const updatedChat = await Chat.findByIdAndUpdate(chatId, {$push: {messages: [{content, sender}]}}, {new: true});
+    return updatedChat;
+  } catch (error) {
+    console.log(error);
+  }
+ }
+
+
  module.exports = { 
   addChat,
   getUserChats,
-  addMessage
+  addMessage,
+  newMessage
  }

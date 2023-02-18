@@ -4,6 +4,7 @@ import { Chat } from 'src/app/interfaces/chat.interface';
 import { User } from 'src/app/interfaces/user.interface';
 import { ApiClientService } from 'src/app/services/api-client/api-client.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { ChatSocketService } from 'src/app/services/chat-socket/chat-socket.service';
 import { ChatService } from 'src/app/services/chat/chat.service';
 
 @Component({
@@ -21,7 +22,8 @@ export class ChatBoxComponent implements OnInit {
   constructor(
     private chatService: ChatService,
     private auth: AuthService,
-    private api: ApiClientService
+    private api: ApiClientService,
+    private chatSocket: ChatSocketService
   ) { }
 
   ngOnInit(): void {
@@ -35,12 +37,9 @@ export class ChatBoxComponent implements OnInit {
   handleSend () {
     if (this.selectedChat && this.messageContent.value?.length) {
       const user = this.auth.getUser();
-      this.api.addMessage(this.selectedChat?._id, this.messageContent.value, user).subscribe({
-        next: updatedChat => {
-          this.selectedChat = updatedChat;
-          this.messageContent.reset();
-        }
-      })
+      this.chatSocket.sendMessage(this.selectedChat?._id, this.messageContent.value, user);
+      this.selectedChat.messages.push({content: this.messageContent.value, sender: user});
+      this.messageContent.reset();
     }
   }
 

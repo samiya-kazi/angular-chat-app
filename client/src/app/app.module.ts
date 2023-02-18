@@ -22,7 +22,11 @@ import { ChatComponent } from './components/chat/chat.component';
 import { ChatListComponent } from './components/chat-list/chat-list.component';
 import { ChatBoxComponent } from './components/chat-box/chat-box.component';
 import { ChatCardComponent } from './components/chat-card/chat-card.component';
-import { MessageComponent } from './components/message/message.component'
+import { MessageComponent } from './components/message/message.component';
+
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 @NgModule({
   declarations: [
@@ -50,7 +54,8 @@ import { MessageComponent } from './components/message/message.component'
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
-    MatCardModule
+    MatCardModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [],
   bootstrap: [AppComponent]

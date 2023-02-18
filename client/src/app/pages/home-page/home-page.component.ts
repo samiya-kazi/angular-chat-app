@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Chat } from 'src/app/interfaces/chat.interface';
 import { User } from 'src/app/interfaces/user.interface';
 import { ApiClientService } from 'src/app/services/api-client/api-client.service';
+import { ChatSocketService } from 'src/app/services/chat-socket/chat-socket.service';
 import { ChatService } from 'src/app/services/chat/chat.service';
 
 @Component({
@@ -15,7 +16,8 @@ export class HomePageComponent implements OnInit {
   constructor(
     private router: Router,
     private api: ApiClientService,
-    private chat: ChatService
+    private chat: ChatService,
+    private chatSocket: ChatSocketService
   ) { }
 
   user! : User;
@@ -32,6 +34,19 @@ export class HomePageComponent implements OnInit {
 
     this.chat.getNewChat().subscribe(chat => {
       this.addNewChat(chat);
+    })
+
+
+    this.chatSocket.getMessages().subscribe({
+      next: updatedChat => {
+        console.log(updatedChat);
+        this.userChats.forEach(chat => {
+          if (chat._id === updatedChat._id) {
+            chat = updatedChat;
+            this.chat.setSelectedChat(chat);
+          }
+        })
+      }
     })
   }
 
