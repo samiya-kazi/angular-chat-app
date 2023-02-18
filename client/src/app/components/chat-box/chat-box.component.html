@@ -3,7 +3,7 @@
     <h3>{{otherUser.firstName + ' ' + otherUser.lastName}}</h3>
     <p class="subtitle">{{otherUser.email}}</p>
   </div>
-  <div class="message-container">
+  <div class="message-container" #scrollMe>
     <app-message *ngFor="let message of selectedChat?.messages" [message]="message"></app-message>
   </div>
   <form class="text-area">

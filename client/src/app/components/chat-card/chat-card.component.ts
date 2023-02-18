@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Chat } from 'src/app/interfaces/chat.interface';
+import { Message } from 'src/app/interfaces/message.interface';
 import { User } from 'src/app/interfaces/user.interface';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ChatSocketService } from 'src/app/services/chat-socket/chat-socket.service';
@@ -16,6 +17,7 @@ export class ChatCardComponent implements OnInit {
   otherUser! : User;
   user! : User;
   selected : boolean = false;
+  lastMessage! : Message;
 
   constructor(
     private auth: AuthService,
@@ -26,6 +28,7 @@ export class ChatCardComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.auth.getUser();
     this.otherUser = this.chat.users.filter(user => user._id !== this.user._id)[0];
+    this.lastMessage = this.chat.messages[this.chat.messages.length - 1];
 
     this.chatSocket.joinChat(this.chat._id);
 

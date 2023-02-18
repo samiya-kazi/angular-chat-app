@@ -3,7 +3,9 @@
     <mat-icon mat-card-avatar color="primary">face</mat-icon>
     <div class="title">
       <mat-card-title>{{otherUser.firstName + ' ' + otherUser.lastName}}</mat-card-title>
-      <mat-card-subtitle class="subtitle">{{otherUser.email}}</mat-card-subtitle>
+      <mat-card-subtitle class="subtitle" *ngIf="lastMessage">
+        {{(lastMessage.sender._id === otherUser._id ? otherUser.firstName : 'You') + ': ' + lastMessage.content}}
+      </mat-card-subtitle>
     </div>
   </mat-card-header>
 </mat-card>
