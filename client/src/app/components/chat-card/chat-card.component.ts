@@ -36,6 +36,10 @@ export class ChatCardComponent implements OnInit {
       if (chat._id === this.chat._id) this.selected = true;
       else this.selected = false;
     })
+
+    this.chatService.getUpdatedChat().subscribe(updatedChat => {
+      if (this.chat._id === updatedChat._id) this.lastMessage = updatedChat.messages[updatedChat.messages.length - 1];
+    })
   }
 
   handleSelect () {

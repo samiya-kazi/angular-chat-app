@@ -15,7 +15,6 @@ export class ChatSocketService {
   }
 
   sendMessage (chatId: string, content: string, sender: User) {
-    console.log('Send Message');
     this.socket.emit('send_message', {chatId, content, sender});
   }
 

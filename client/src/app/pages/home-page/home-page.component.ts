@@ -39,7 +39,7 @@ export class HomePageComponent implements OnInit {
 
     this.chatSocket.getMessages().subscribe({
       next: updatedChat => {
-        console.log(updatedChat);
+        this.chat.setUpdatedChat(updatedChat);
         this.userChats.forEach(chat => {
           if (chat._id === updatedChat._id) {
             chat = updatedChat;

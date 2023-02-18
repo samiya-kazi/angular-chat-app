@@ -43,6 +43,7 @@ export class ChatBoxComponent implements OnInit {
       const user = this.auth.getUser();
       this.chatSocket.sendMessage(this.selectedChat?._id, this.messageContent.value, user);
       this.selectedChat.messages.push({content: this.messageContent.value, sender: user});
+      this.chatService.setUpdatedChat(this.selectedChat);
       this.messageContent.reset();
       this.scrollToBottom();
     }
